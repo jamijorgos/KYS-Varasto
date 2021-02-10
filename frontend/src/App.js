@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import Items from './Items.js';
 function App() {
   return (
     <div className="App">
@@ -10,7 +10,8 @@ function App() {
 
       <body>
         <Category/>
-        <h2>Valitse esine</h2>
+        <h2>Valitse tavara</h2>
+        <Items/>
 
       </body>
     </div>
