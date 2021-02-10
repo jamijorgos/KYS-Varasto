@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>KYS-Varastonhallinta</h1>
       </header>
+
+      <body>
+        <Category/>
+        <h2>Valitse esine</h2>
+
+      </body>
     </div>
   );
 }
 
 export default App;
+
+function Category() {
+  return (
+    <div>
+      <h2>Valitse kategoria</h2>
+        <select>
+          <option value = "1">Rokotteet</option>
+          <option value = "2">Työvälineet</option>
+          <option value = "3">Muut</option>
+        </select>
+    </div>
+  );
+}
