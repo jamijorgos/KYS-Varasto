@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Result from './Result.js';
 
 function Items(params) {
 
@@ -13,28 +14,27 @@ function Items(params) {
     function ItemList(data) {//Täyttää alasvetolaatikon
         //console.log("Data: ");
         //console.log(data);
-        if(data==="Ei löydy"){
-            return (
-                <select disabled>
-                    <option>Tyhjä</option>
-                </select>
-            );
-        }
-        else if (data.length > 0){
-            const listItems = data.map((asiakas) =>
-                <option value = {data.id}>data.nimi</option>
+        
+        if (data.length > 0){
+            const listItems = data.map((tavara) =>
+                <option value = {tavara.id}>{tavara.nimi}</option>
             );
             return (
                 <select>{listItems}</select>
             );
         }
     }
-
+    //Täällä palautetaan se täydennetty alasvetolaatikko
+    //Sitten joku onchange metodi ja siitä kutsutaan Result
     return (
         <div>
-            <button onClick={() => fetchData()}>Hae</button>
+            <select onChange={() => fetchData()}>
+                <option>1</option>
+            </select>
             <br/>
             {ItemList}
+            <br/>
+            <Result/>
         </div>
 
     )
