@@ -11,11 +11,12 @@ function App() {
       </header>
 
       <body>
-        <h2>Valitse kategoria</h2>
-        <Category/>
-        <h2>Valitse tavara</h2>
-        <Items/>
-        <br/>
+        <div>
+          <Category />
+          <h2>Valitse tavara</h2>
+          <Items />
+        </div>
+        <br />
       </body>
     </div>
   );
@@ -26,11 +27,15 @@ export default App;
 function Category() {
   return (
     <div>
-        <select>
-          <option value = "1">Rokotteet</option>
-          <option value = "2">Työvälineet</option>
-          <option value = "3">Muut</option>
-        </select>
+      <h2>Valitse kategoria</h2>
+
+      <select>
+        <option value="1">Rokotteet</option>
+        <option value="2">Työvälineet</option>
+        <option value="3">Muut</option>
+      </select>
+
+
     </div>
   );
 }
