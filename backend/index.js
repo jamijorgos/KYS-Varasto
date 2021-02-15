@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import Routes from './routes/routes.js'
+
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useCreateIndex', true);
@@ -15,6 +17,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 
 //Import and use routes
+app.use('/', Routes);
 
 //Connect to Database
 const DB_CONNECTION = 'mongodb+srv://kys_admin:admin123@cluster0.jnj5r.mongodb.net/KYS_DB?retryWrites=true&w=majority';
@@ -29,5 +32,3 @@ connection.once('open', () => {
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 })
-
-//Backend installs: body-parser cors express mongoose nodemon
