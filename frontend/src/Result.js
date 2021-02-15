@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 
 function Result(params) {
-
-
     return (
         <form>
             <br/>
-            <div class="container">
-                <div class="row">
-                    <div className="col">
-                        <label>
-                            ID:
-                        <input id="tavaraid"></input>
-                        </label>
+            <div class="container bg-info">
+                <div class = "row">
+                    <div class = "col">
+                        <img src = "logo.svg"></img>
                     </div>
-                    <div className="col">
-                        <label>
-                            Nimi:
-                            <input type="text" name="tavaranimi"></input>
-                        </label>
+                    <div class = "col">
+                        <p>Nimi: </p>
                     </div>
-                    <div className="col">
-                        <label>
-                            Kategoria:
-                            <input type="text" name="tavarakategoria" />
-                        </label>
+                    <div class = "col">
+                        <p>Kategoria: </p>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col">
+
+                    </div>
+                    <div class = "col">
+                        <p>Hyllypaikka: </p>
+                    </div>
+                    <div class = "col">
+                        <p>Määrä varastossa: </p>
                     </div>
                 </div>
             </div>

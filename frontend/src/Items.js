@@ -31,7 +31,7 @@ function Items(params) {
             <Category/>
             <br/>
             <h2>Valitse Tavara</h2>
-            <select onChange={() => fetchData()}>
+            <select class= "custom-select custom-select-lg mb-3" onChange={() => fetchData()}>
                 <option>1</option>
             </select>
             
@@ -47,8 +47,9 @@ export default Items;
 function Category() {
     return (
         <div>
+            <br/>
             <h2>Valitse kategoria</h2>
-            <select>
+            <select class= "custom-select custom-select-lg mb-3">
                 <option value="1">Rokotteet</option>
                 <option value="2">Työvälineet</option>
                 <option value="3">Muut</option>
