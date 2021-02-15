@@ -5,8 +5,9 @@ function Result(params) {
 
     return (
         <form>
-            <div className="container">
-                <div className="row">
+            <br/>
+            <div class="container">
+                <div class="row">
                     <div className="col">
                         <label>
                             ID:
