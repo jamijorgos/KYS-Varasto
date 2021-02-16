@@ -5,17 +5,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
+    <body>
     <div className="container">
       <header className="App-header">
         <h1>KYS-Varastonhallinta</h1>
       </header>
-
-      <body>
         <div>
           <Items />
         </div>
-      </body>
     </div>
+    </body>
   );
 }
 
