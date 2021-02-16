@@ -2,21 +2,19 @@ import React, { useEffect, useState } from 'react';
 
 function Result(props) {
 
-    var tavaraId = props.tavaraId;
+    var tavaraId = props.props.tavaraId;
     //Jotenkin tuolta propseista pitäisi saada se tavaraId.
-    console.log(props);
-    console.log("tavaraID: "+ tavaraId);
 
     const [fetchedItemData, setfetchedItemData] = useState([]);
 
     useEffect(()=> {//Hooksin lifecycle metodi joka ajetaan sen jälkeen kun DOM-puu on luotu
         fetchItemData();
-    },[])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
+    },[props])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
 
     async function fetchItemData() {
-        let response = await fetch("http://localhost:5000/"+tavaraId);//Tänne oikeanlainen kutsu jolla saadaan tiedot palvelimelta
+        let response = await fetch(`http://localhost:5000/${tavaraId}`);//Tänne oikeanlainen kutsu jolla saadaan tiedot palvelimelta
         let data = await response.json();
-        console.log("Resultissa haettu data: ")
+        console.log("Resultissa haettu data: ");
         console.log(data);
         setfetchedItemData(data);
     }
@@ -27,13 +25,13 @@ function Result(props) {
             <div class="container bg-info">
                 <div class = "row">
                     <div class = "col">
-                        <img src = "logo.svg"></img>
+                        <img src = {fetchedItemData.image} alt="tavaran kuva"></img>
                     </div>
                     <div class = "col">
-                        <p>Nimi: </p>
+                        <p>Nimi: {fetchedItemData.name}</p>
                     </div>
                     <div class = "col">
-                        <p>Kategoria: </p>
+                        <p>Kategoria: {fetchedItemData.category}</p>
                     </div>
                 </div>
                 <div class = "row">
@@ -41,10 +39,10 @@ function Result(props) {
 
                     </div>
                     <div class = "col">
-                        <p>Hyllypaikka: </p>
+                        <p>Hyllypaikka: {fetchedItemData.location}</p>
                     </div>
                     <div class = "col">
-                        <p>Määrä varastossa: </p>
+                        <p>Määrä varastossa: {fetchedItemData.amount}</p>
                     </div>
                 </div>
             </div>
