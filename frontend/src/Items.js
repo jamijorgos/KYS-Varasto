@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Result from './Result.js';
 
 function Items(params) {
 
     const [fetchedData, setfetchedData] = useState([]);
 
+    useEffect(()=> {//Hooksin lifecycle metodi joka ajetaan sen jälkeen kun DOM-puu on luotu
+        fetchData();
+    },[])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
+
     async function fetchData() {
-        let response = await fetch("http://localhost:5000");//Tänne oikeanlainen kutsu jolla saadaan tiedot palvelimelta
+        let response = await fetch("http://localhost:5000/");//Tänne oikeanlainen kutsu jolla saadaan tiedot palvelimelta
         let data = await response.json();
+        console.log(data);
         setfetchedData(data);
     }
 
@@ -17,25 +22,25 @@ function Items(params) {
         
         if (data.length > 0){
             const listItems = data.map((tavara) =>
-                <option value = {tavara.id}>{tavara.nimi}</option>
+                <option value = {tavara.id}>{tavara.name}</option>
             );
             return (
-                <select>{listItems}</select>
+                <select class= "custom-select custom-select-lg mb-3">
+                    {listItems}
+                </select>
             );
         }
     }
     //Täällä palautetaan se täydennetty alasvetolaatikko
     //Sitten joku onchange metodi ja siitä kutsutaan Result
+
     return (
         <div>
             <Category/>
             <br/>
             <h2>Valitse Tavara</h2>
-            <select class= "custom-select custom-select-lg mb-3" onChange={() => fetchData()}>
-                <option>1</option>
-            </select>
             
-            {ItemList}
+            {ItemList(fetchedData)}
             <br/>
             <Result/>
         </div>
