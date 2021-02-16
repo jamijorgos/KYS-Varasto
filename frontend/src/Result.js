@@ -4,7 +4,7 @@ function Result(props) {
 
     var tavaraId = props.tavaraId;
     //Jotenkin tuolta propseista pitäisi saada se tavaraId.
-    console.log(props[0]);
+    console.log(props);
     console.log("tavaraID: "+ tavaraId);
 
     const [fetchedItemData, setfetchedItemData] = useState([]);
