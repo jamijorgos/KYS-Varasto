@@ -11,7 +11,7 @@ function Items(params) {
     },[])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
 
     async function fetchData() {
-        let response = await fetch("http://localhost:5000/");//Tänne oikeanlainen kutsu jolla saadaan tiedot palvelimelta
+        let response = await fetch("http://localhost:5000/");//kutsu jolla saadaan tiedot palvelimelta
         let data = await response.json();
         //console.log(data);
         setfetchedData(data);
