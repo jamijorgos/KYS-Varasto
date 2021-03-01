@@ -15,7 +15,14 @@ function App() {
     }
   }
 
-  
+  const sidebarCloseHandler = () =>{
+    setSidebarOpen(false);
+  }
+
+  let sidebar;
+  if(sidebarOpen){
+    sidebar = <Sidebar close = {sidebarCloseHandler} sidebar = {"sidebar"}/>
+  }
 
   return (
     <body>
@@ -23,7 +30,7 @@ function App() {
         <header className="App-header">
           <h1>KYS-Varastonhallinta</h1>
         </header>
-        <Sidebar/>
+        {sidebar}
         <Toggle click = {openHandler}/>
       </div>
     </body>
@@ -32,11 +39,21 @@ function App() {
 
 export default App;
 
-function Sidebar () {
+function Sidebar (props) {
+
+  const [sidebarClass, setSidebarClass] = useState(props.sidebar);
+
+  const closeHandler = () => {
+    setSidebarClass("sidebar-close");
+    setTimeout(() => {
+      props.close();
+    }, 1000)
+  }
+
   return(
-      <div className="sidebar">
+      <div className={sidebarClass}>
           <h2>Tavarahaku</h2>
-          <button id="close">&times; SULJE</button>
+          <button id="close" onClick = {closeHandler}>&times; SULJE</button>
           <Items/>
       </div>
   )
