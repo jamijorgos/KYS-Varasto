@@ -37,6 +37,27 @@
   overflow-y: auto;
 }
 
+.sidebar {
+  height: 100vh;
+  padding-left: 20px;
+  background-color: rgb(24, 11, 145);
+  opacity: 0.8;
+  color: white;
+  width: 400px;
+  position: fixed;
+  z-index: 200;
+  left:-100%;
+  animation: slide-open 0.75s forwards;
+}
+
+.sidebar-close{
+  left: -100%;
+}
+
+@keyframes slide-open{
+  100% {left:0}
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
