@@ -43,6 +43,8 @@ function Result(props) {
                     </div>
                     <div class = "col">
                         <p>Määrä varastossa: {fetchedItemData.amount}</p>
+                        <button type="button" class="btn btn-light">+</button>
+                        <button type="button" class="btn btn-light">-</button>
                     </div>
                 </div>
             </div>

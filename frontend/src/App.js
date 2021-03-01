@@ -6,14 +6,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <body>
-    <div className="container">
-      <header className="App-header">
-        <h1>KYS-Varastonhallinta</h1>
-      </header>
-        <div>
-          <Items />
-        </div>
-    </div>
+      <div className="container-fluid">
+        <header className="App-header">
+          <h1>KYS-Varastonhallinta</h1>
+        </header>
+        <nav class="col-md-3 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <Items />
+          </div>
+        </nav>
+      </div>
     </body>
   );
 }

@@ -41,7 +41,7 @@ function Items(params) {
         <div>
             <Category/>
             <br/>
-            <h2>Valitse Tavara</h2>
+            <h4>Valitse tavara</h4>
             
             {ItemList(fetchedData)}
             <br/>
@@ -53,10 +53,11 @@ function Items(params) {
 export default Items;
 
 function Category() {
+    
     return (
         <div>
             <br/>
-            <h2>Valitse kategoria</h2>
+            <h4>Valitse kategoria</h4>
             <select class= "custom-select custom-select-lg mb-3">
                 <option value="1">Rokotteet</option>
                 <option value="2">Työvälineet</option>
