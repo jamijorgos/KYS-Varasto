@@ -51,6 +51,14 @@
 }
 
 .sidebar-close{
+  height: 100vh;
+  padding-left: 20px;
+  background-color: rgb(24, 11, 145);
+  opacity: 0.8;
+  color: white;
+  width: 400px;
+  position: fixed;
+  z-index: 200;
   left: 0;
   animation: slide-closed 0.75s forwards;
 }
