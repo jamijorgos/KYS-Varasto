@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './App.css';
 
 function Result(props) {
 
@@ -30,6 +31,11 @@ function Result(props) {
                     <div class = "col">
                         <p>Nimi: {fetchedItemData.name}</p>
                     </div>
+                </div>
+                <div class="row">
+                <div class = "col">
+                        
+                    </div>
                     <div class = "col">
                         <p>Kategoria: {fetchedItemData.category}</p>
                     </div>
@@ -41,6 +47,9 @@ function Result(props) {
                     <div class = "col">
                         <p>Hyllypaikka: {fetchedItemData.location}</p>
                     </div>
+                </div>
+                <div class="row">
+                    <div class= "col"></div>
                     <div class = "col">
                         <p>Määrä varastossa: {fetchedItemData.amount}</p>
                         <button type="button" class="btn btn-light">+</button>
