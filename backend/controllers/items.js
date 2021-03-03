@@ -14,7 +14,6 @@ export const getAllItems = async (req, res) => {
 export const addNewItem = async (req, res) => {
     const item = req.body;
     const newItem = new ItemModel(item);
-
     try {
         await newItem.save();
         res.status(201).json(newItem);

@@ -63,6 +63,27 @@
   animation: slide-closed 0.75s forwards;
 }
 
+/* Varaston kartta */
+.kartta-img {
+  margin-left: 25rem;
+}
+/* Tavaran lisäys/muokkaus form */
+#admin-form{
+    max-width: 500px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 50rem;
+    margin-top: 1.25rem;
+    padding-top: 1.9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#admin-form input, #admin-form button {
+  margin: 5px;
+  width: 250px;
+}
+
 @keyframes slide-open{
   100% {left:0}
 }
