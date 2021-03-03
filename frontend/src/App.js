@@ -1,10 +1,12 @@
 import React, { useState, Fragment } from 'react';
 import './App.css';
 import Items from './Items.js';
+import Map from './components/Map'
+import AdminForm from './components/AdminForm'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const openHandler = () =>{
     if(!sidebarOpen){
@@ -32,6 +34,8 @@ function App() {
         </header>
         {sidebar}
         <Toggle click = {openHandler}/>
+        <Map />
+        <AdminForm />
       </div>
     </body>
   );
