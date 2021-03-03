@@ -4,7 +4,7 @@ import Items from './Items.js';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const openHandler = () =>{
     if(!sidebarOpen){
@@ -53,7 +53,7 @@ function Sidebar (props) {
   return(
       <div className={sidebarClass}>
           <h2>Tavarahaku</h2>
-          <button id="close" onClick = {closeHandler}>&times; SULJE</button>
+          <button id="close" class="btn btn-info btn-lg" onClick = {closeHandler}>&times; SULJE</button>
           <Items/>
       </div>
   )
@@ -62,7 +62,7 @@ function Sidebar (props) {
 function Toggle(props){
   return(
       <Fragment>
-          <button id="toggle" onClick = {props.click}>&#8801;</button>
+          <button class="btn btn-info btn-lg" id="toggle" onClick = {props.click}>&#8801;</button>
       </Fragment>
   )
 }
