@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Items from './Items.js';
-import './App.css';
 
 function Sidebar (props) {
 

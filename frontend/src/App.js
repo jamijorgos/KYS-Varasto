@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useRef } from 'react';
 import './App.css';
-import Items from './Items.js';
-import Sidebar from './Sidebar.js';
+import Items from './components/Items.js';
+import Sidebar from './components/Sidebar.js';
 import Map from './components/Map'
 import AdminForm from './components/AdminForm'
 import "bootstrap/dist/css/bootstrap.min.css";
