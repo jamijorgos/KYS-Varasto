@@ -1,4 +1,3 @@
-import { CropSquareRounded } from '@material-ui/icons';
 import React, { useState } from 'react'
 import Resizer from 'react-image-file-resizer';
 
