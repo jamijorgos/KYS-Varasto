@@ -42,3 +42,13 @@ export const updateItemByID = async (req, res) => {
     const updatedItem = await ItemModel.findByIdAndUpdate(_id, item, { new: true });
     res.json(updatedItem)
 }
+//Delete Product by ID
+export const deleteItem = async (req, res) => {
+    const { id: _id } = req.params;
+    
+    if(!mongoose.Types.ObjectId.isValid(_id))
+        return res.status(404).send({ message: 'Item ID not found' })
+
+    await ItemModel.findByIdAndDelete(_id);
+    res.send({ message: `Item ID: ${_id} deleted` });
+}

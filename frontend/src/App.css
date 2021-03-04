@@ -69,7 +69,7 @@
 }
 /* Tavaran lisäys/muokkaus form */
 #admin-form{
-    max-width: 500px;
+    max-width: 250px;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -81,7 +81,10 @@
 }
 #admin-form input, #admin-form button {
   margin: 5px;
-  width: 250px;
+}
+#admin-form .button2 {
+  margin-top: 0px;
+  width: 50%;
 }
 
 @keyframes slide-open{

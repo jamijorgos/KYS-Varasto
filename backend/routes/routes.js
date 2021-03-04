@@ -10,5 +10,6 @@ router.get('/', itemFunctions.getAllItems);
 router.post('/', itemFunctions.addNewItem);
 router.get('/:id', itemFunctions.getItemByID);
 router.patch('/:id', itemFunctions.updateItemByID);
+router.delete('/:id', itemFunctions.deleteItem);
 
 export default router;
