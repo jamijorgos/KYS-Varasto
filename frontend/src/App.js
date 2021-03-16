@@ -8,7 +8,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const sidebarAuki = useRef(true);
 
   const openHandler = () =>{
     if(!sidebarOpen){
@@ -18,15 +17,16 @@ function App() {
       setSidebarOpen(false);
     }
   }
-
   const sidebarCloseHandler = () =>{
     setSidebarOpen(false);
   }
+
 
   let sidebar;
   if(sidebarOpen){
     sidebar = <Sidebar close = {sidebarCloseHandler} sidebar = {"sidebar"}/>
   }
+  
 
   return (
     <body>
