@@ -3,11 +3,13 @@ import Items from './Items.js';
 
 function Sidebar (props) {
 
-    const [sidebarClass, setSidebarClass] = useState(props.sidebar);
+    const [sidebarClass, setSidebarClass] = useState(props.sidebar);//sidebarin luokkatieto jonka se saa parametrina
+    
+
   
-    const closeHandler = () => {
-      setSidebarClass("sidebar-close");
-      setTimeout(() => {
+    const closeHandler = () => {//Sulkemispyynnön käsittely
+      setSidebarClass("sidebar-close");//Muutetaan sidebarin luokkaa
+      setTimeout(() => {//Sulkemiseen viive
         props.close();
       }, 700)
     }
@@ -16,7 +18,7 @@ function Sidebar (props) {
         <div className={sidebarClass}>
             <h2>Tavarahaku</h2>
             <button id="close" class="btn btn-info btn-lg" onClick = {closeHandler}>&times; SULJE</button>
-            <Items/>
+            <Items selectedItem = {props.selectedItem} setSelectedItem = {props.setSelectedItem}/>
         </div>
     )
   }

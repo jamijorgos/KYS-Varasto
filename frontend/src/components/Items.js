@@ -1,10 +1,10 @@
 import React, { useEffect, useState, memo } from 'react';
 import Result from './Result.js';
 
-function Items(params) {
+function Items(props) {
 
     const [fetchedData, setfetchedData] = useState([]);
-    const [selectedItem, setselectedItem] = useState("");
+    //const [selectedItem, setselectedItem] = useState(props.props.selectedItem);
 
     useEffect(()=> {//Hooksin lifecycle metodi joka ajetaan sen jälkeen kun DOM-puu on luotu
         fetchData();
@@ -17,7 +17,6 @@ function Items(params) {
         setfetchedData(data);
     }
 
-
     function ItemList(data) {//Täyttää alasvetolaatikon
         //console.log("Data: ");
         //console.log(data);
@@ -27,7 +26,7 @@ function Items(params) {
                 <option value = {tavara._id}>{tavara.name}</option>
             );
             return (
-                <select class= "custom-select custom-select-lg mb-3" onChange = {e => setselectedItem(e.target.value)}>
+                <select class= "custom-select custom-select-lg mb-3" onChange = {e => props.setSelectedItem(e.target.value)}>
                     {listItems}
                 </select>
             );
@@ -45,7 +44,7 @@ function Items(params) {
             
             {ItemList(fetchedData)}
             <br/>
-            <Result props = {{tavaraId : selectedItem}}/>
+            <Result tavaraId = {props.selectedItem}/>
         </div>
 
     )

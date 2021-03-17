@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 function Result(props) {
 
-    var tavaraId = props.props.tavaraId;
+    var tavaraId = props.tavaraId;
     //Jotenkin tuolta propseista pitäisi saada se tavaraId.
 
     const [fetchedItemData, setfetchedItemData] = useState([]);

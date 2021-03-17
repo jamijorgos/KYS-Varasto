@@ -7,9 +7,10 @@ import AdminForm from './components/AdminForm'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(true);//Sidebarin aukiolotieto
+  const [selectedItem, setSelectedItem] = useState("");//Valittu tavara
 
-  const openHandler = () =>{
+  const openHandler = () =>{//käsitellään pyyntö avata sidebar
     if(!sidebarOpen){
       setSidebarOpen(true);
     }
@@ -17,17 +18,15 @@ function App() {
       setSidebarOpen(false);
     }
   }
-  const sidebarCloseHandler = () =>{
+  const sidebarCloseHandler = () =>{//sidebarin sulkemispyynnön käsittely
     setSidebarOpen(false);
   }
 
-
-  let sidebar;
-  if(sidebarOpen){
-    sidebar = <Sidebar close = {sidebarCloseHandler} sidebar = {"sidebar"}/>
+  let sidebar;//Sidebarin parametrien määrittely
+  if(sidebarOpen){//Jos sidebar on auki, sidebarille annetaan parametrina sulkemisfunktio ja avoimen sidebarin luokka.
+    sidebar = <Sidebar close = {sidebarCloseHandler} sidebar = {"sidebar"} selectedItem = {selectedItem} setSelectedItem={setSelectedItem}/>
   }
   
-
   return (
     <body>
       <div className="container-fluid">
