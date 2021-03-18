@@ -17,11 +17,17 @@
   background-color: #282c34;
   min-height: 5vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(5px + 2vmin);
   color: white;
+}
+.App-header h1 {
+  margin-left: 500px;
+}
+.App-header a {
+  margin-right: 20px;
 }
 
 .App-link {
@@ -63,8 +69,17 @@
   animation: slide-closed 0.75s forwards;
 }
 
-/* Varaston kartta */
-.kartta-img {
+/* Admin paneeli */
+.admin-flex { 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+.admin-map {
+  margin-right: 10rem;
+  max-width: 1000px;
+}
+.user-map {
   margin-left: 25rem;
 }
 /* Tavaran lisäys/muokkaus form */

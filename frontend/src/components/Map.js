@@ -1,10 +1,10 @@
 import React from 'react'
 import kartta from '../images/varastokartta.png'
 
-const Map = () => {
+const Map = (props) => {
     return (
         <div>
-            <img className="kartta-img" src={kartta}></img>
+            <img className={props.mapClass} src={kartta}></img>
         </div>
     )
 }
