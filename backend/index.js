@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import Routes from './routes/routes.js'
+import LogRoutes from './routes/logs.js'
 
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded( { limit: "30mb", extended: true}));
 
 //Import and use routes
 app.use('/', Routes);
+app.use('/logs', LogRoutes);
 
 //Connect to Database
 const DB_CONNECTION = 'mongodb+srv://kys_admin:admin123@cluster0.jnj5r.mongodb.net/KYS_DB?retryWrites=true&w=majority';

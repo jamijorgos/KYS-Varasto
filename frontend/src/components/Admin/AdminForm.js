@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Resizer from 'react-image-file-resizer';
+import * as LogFunctions from './LogFunctions';
 
 const AdminForm = () => {
     const [fetchedData, setfetchedData] = useState([]); //Säilöö kaikki tavarat
@@ -48,6 +49,7 @@ const AdminForm = () => {
             }).then(r => r.json()).then(res => {
                 if(res && !res.message){
                     alert('Tavaran lisäys onnistui!')
+                    LogFunctions.itemAdded(itemData);
                 } else {
                     alert('Tavaran lisäys EPÄonnistui!')
                 }
@@ -60,6 +62,7 @@ const AdminForm = () => {
             }).then(r => r.json()).then(res => {
                 if(res && !res.message){
                     alert('Tavaran muokkaus onnistui!')
+                    LogFunctions.itemEdited(itemData);
                 } else {
                     alert('Tavaran muokkaus EPÄonnistui!')
                 }
@@ -74,6 +77,7 @@ const AdminForm = () => {
             }).then(r => r.json()).then(res => {
                 if(res){
                     alert(res.message);
+                    LogFunctions.itemDeleted(itemData)
                     clear();
                 }
             })
