@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 function Result(props) {
 
     var tavaraId = props.tavaraId;
@@ -53,32 +54,32 @@ function Result(props) {
             <br/>
             <div class="container bg-info">
                 <div class = "row">
-                    <div class = "col">
-                        <img src = {fetchedItemData.image} alt="tavaran kuva"></img>
+                    <div class = "col-sm-6" style = {{height: 100}}>
+                        <img src = {fetchedItemData.image} alt="tavaran kuva" style = {{paddingTop:15}}></img>
                     </div>
-                    <div class = "col">
+                    <div class = "col-sm-6">
                         <p>Nimi: {fetchedItemData.name}</p>
                     </div>
                 </div>
                 <div class="row">
-                <div class = "col">
+                <div class = "col-sm">
                         
                     </div>
-                    <div class = "col">
+                    <div class = "col-sm">
                         <p>Kategoria: {fetchedItemData.category}</p>
                     </div>
                 </div>
                 <div class = "row">
-                    <div class = "col">
+                    <div class = "col-sm">
 
                     </div>
-                    <div class = "col">
+                    <div class = "col-sm">
                         <p>Hyllypaikka: {fetchedItemData.location}</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class= "col"></div>
-                    <div class = "col">
+                    <div class= "col-sm"></div>
+                    <div class = "col-sm">
                         <p>Määrä varastossa: {fetchedItemData.amount}</p>
                         <button type="button" class="btn btn-light" onClick = {incrAmount}>+</button>
                         <button type="button" class="btn btn-light" onClick = {decrAmount}>-</button>

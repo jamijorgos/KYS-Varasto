@@ -27,6 +27,7 @@ function Items(props) {
             );
             return (
                 <select class= "custom-select custom-select-lg mb-3" onChange = {e => props.setSelectedItem(e.target.value)}>
+                    <option value = {""}>Valitse tavara</option>
                     {listItems}
                 </select>
             );
