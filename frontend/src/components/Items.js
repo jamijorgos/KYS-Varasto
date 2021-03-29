@@ -59,6 +59,7 @@ function Category() {
             <br/>
             <h4>Valitse kategoria</h4>
             <select class= "custom-select custom-select-lg mb-3">
+                <option value="Valitse kategoria">Valitse kategoria</option>
                 <option value="1">Rokotteet</option>
                 <option value="2">Työvälineet</option>
                 <option value="3">Muut</option>

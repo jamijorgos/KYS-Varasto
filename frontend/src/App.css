@@ -34,15 +34,6 @@
   color: #61dafb;
 }
 
-.sidebar-sticky {
-  position: sticky;
-  top: 48px;
-  height: calc(100vh - 48px);
-  padding-top: .5rem;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 img{
   margin-top: 2px;
 }
@@ -51,14 +42,16 @@ button{
   padding: 2pt;
 }
 
+/*Sidebarin vakioasetukset*/
+
 .sidebar {
   height: 100vh;
   padding-left: 20px;
-  background-color: rgb(24, 11, 145);
   opacity: 0.8;
   color: white;
+  background-color: rgb(145, 11, 11);
   width: 400px;
-  position: fixed;
+  position: absolute;
   z-index: 200;
   left:-100%;
   animation: slide-open 0.75s forwards;
@@ -67,15 +60,36 @@ button{
 .sidebar-close{
   height: 100vh;
   padding-left: 20px;
-  background-color: rgb(24, 11, 145);
   opacity: 0.8;
   color: white;
   width: 400px;
-  position: fixed;
+  position: absolute;
   z-index: 200;
   left: 0;
   animation: slide-closed 0.75s forwards;
 }
+
+/*Media Queryt*/
+
+@media (min-width: 576px) {
+
+  .sidebar{
+    background-color: rgb(145, 136, 11);
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar{
+    background-color: rgb(11, 145, 22);
+  }
+}
+
+@media (min-width: 992px) {
+  .sidebar{
+    background-color: rgb(13, 11, 145);
+  }
+}
+
 
 /* Admin paneeli */
 .admin-flex { 
