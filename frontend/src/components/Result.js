@@ -13,7 +13,7 @@ function Result(props) {
     },[props])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
 
     useEffect(() => { // Suorittaa liian usein (myös sidebaria avattaessa/sulkiessa)
-        console.log(fetchedItemData);
+        //console.log(fetchedItemData);
         fetch(`http://localhost:5000/${tavaraId}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
@@ -51,38 +51,19 @@ function Result(props) {
 
     return (
         <form>
-            <br/>
             <div class="container bg-info">
                 <div class = "row">
-                    <div class = "col-sm-6" style = {{height: 100}}>
-                        <img src = {fetchedItemData.image} alt="tavaran kuva" style = {{paddingTop:15}}></img>
+                    <div class = "col-sm-6" style = {{maxheight: 100}}>
+                        <img src = {fetchedItemData.image} class="img-fluid" alt="tavaran kuva" style = {{paddingTop:15}}></img>
                     </div>
-                    <div class = "col-sm-6">
-                        <p>Nimi: {fetchedItemData.name}</p>
-                    </div>
-                </div>
-                <div class="row">
-                <div class = "col-sm">
-                        
-                    </div>
-                    <div class = "col-sm">
-                        <p>Kategoria: {fetchedItemData.category}</p>
-                    </div>
-                </div>
-                <div class = "row">
-                    <div class = "col-sm">
-
-                    </div>
-                    <div class = "col-sm">
-                        <p>Hyllypaikka: {fetchedItemData.location}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class= "col-sm"></div>
-                    <div class = "col-sm">
-                        <p>Määrä varastossa: {fetchedItemData.amount}</p>
-                        <button type="button" class="btn btn-light" onClick = {incrAmount}>+</button>
-                        <button type="button" class="btn btn-light" onClick = {decrAmount}>-</button>
+                    <div class = "col-sm-6" id="resultBox">
+                        <p class = "resultText">Nimi: {fetchedItemData.name}</p>
+                        <p class = "resultText">Kategoria: {fetchedItemData.category}</p>
+                        <p class = "resultText">Hyllypaikka: {fetchedItemData.location}</p>
+                        <p class = "resultText">Määrä varastossa: {fetchedItemData.amount}</p>
+                        <button type="button" class="btn btn-light mr-2" id = "saldo" onClick = {incrAmount}><b>+</b></button>
+                        <button type="button" class="btn btn-light mr-2" id = "saldo" onClick = {decrAmount}><b>-</b></button>
+                        <br/>
                     </div>
                 </div>
             </div>

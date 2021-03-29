@@ -31,7 +31,7 @@ function App() {
   return (
     <Router>
       <body>
-        <div className="container-fluid">
+        <div className="App-container">
           <header className="App-header">
             <h1>KYS-Varastonhallinta</h1>
             <Link className="btn btn-light" to="adminpanel">Admin</Link>

@@ -42,6 +42,32 @@ button{
   padding: 2pt;
 }
 
+#toggle{
+  padding: 10pt;
+  padding-left: 20pt;
+  padding-right: 20pt;
+  font-size: x-large;
+}
+
+#saldo{
+  width: 45%;
+  font-size: x-large;
+  padding: 0;
+  margin-bottom: 1pt;
+}
+
+.resultText{
+  font-size: large;
+}
+
+#resultBox{
+  padding: 15px;
+}
+
+.sidebarContent{
+  margin-right: 20px;
+}
+
 /*Sidebarin vakioasetukset*/
 
 .sidebar {
@@ -50,7 +76,8 @@ button{
   opacity: 0.8;
   color: white;
   background-color: rgb(145, 11, 11);
-  width: 400px;
+  width: 100%;
+  max-width: 500px;
   position: absolute;
   z-index: 200;
   left:-100%;
@@ -62,7 +89,8 @@ button{
   padding-left: 20px;
   opacity: 0.8;
   color: white;
-  width: 400px;
+  width: 100%;
+  max-width: 500px;
   position: absolute;
   z-index: 200;
   left: 0;
@@ -75,6 +103,14 @@ button{
 
   .sidebar{
     background-color: rgb(145, 136, 11);
+    max-width: 500px;
+    
+  }
+  #saldo{
+    width: 40%;
+    font-size: x-large;
+    padding: 0;
+    margin-bottom: 1pt;
   }
 }
 
