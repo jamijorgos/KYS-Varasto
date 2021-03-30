@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Resizer from 'react-image-file-resizer';
 import * as LogFunctions from './LogFunctions';
+import { LOCATIONS } from '../ShelfLocation';
 
 const AdminForm = ({setMapLocation}) => {
     const [fetchedData, setfetchedData] = useState([]); //Säilöö kaikki tavarat
@@ -18,6 +19,7 @@ const AdminForm = ({setMapLocation}) => {
     }, [currentID])
     useEffect(() => {
         setMapLocation(itemData.location)
+        setLocationSelectValue(itemData.location)
     }, [itemData.location])
 
     // Kaikki tavarat serveriltä
@@ -34,11 +36,26 @@ const AdminForm = ({setMapLocation}) => {
                 <option value = {tavara._id}>{tavara.name}</option>
             );
             return (
-                <select class= "custom-select custom-select-lg mb-3" onChange = {e => setCurrentID(e.target.value)}>
+                <select class= "custom-select custom-select-lg mb-2" onChange = {e => setCurrentID(e.target.value)}>
                     {listItems}
                 </select>
             );
         }
+    }
+    // Hyllynumeroiden selectin luonti
+    const locationSelect = () => {
+        const hyllynumerot = LOCATIONS.map((location) =>
+            <option value={location.nro}>{location.nro}</option>
+        )
+        return (
+            <select id="location-select" className="custom-select m-0" onChange={(e) => setItemData({ ...itemData, location: e.target.value})}>
+                {hyllynumerot}
+            </select>
+        );
+    }
+    // Selectin arvon asetus
+    const setLocationSelectValue = (n) => {
+        document.getElementById("location-select").value = n;
     }
     // Uuden tavaran lisäys, tavaroiden muokkaus
     const handleSubmit = (e) => {
@@ -128,11 +145,26 @@ const AdminForm = ({setMapLocation}) => {
         <form id="admin-form" autoComplete="off" noValidate onSubmit={handleSubmit}>
             {ItemList(fetchedData)}
             <h3>{currentID === 0 ? 'Lisää tavara' : 'Muokkaa tietoja'}</h3>
-            <input type="text" placeholder="name" value={itemData.name} onChange={(e) => setItemData({ ...itemData, name: e.target.value})}></input>
-            <input type="text" placeholder="amount" value={itemData.amount} onChange={(e) => setItemData({ ...itemData, amount: e.target.value})}></input>
-            <input type="text" placeholder="location" value={itemData.location} onChange={(e) => setItemData({ ...itemData, location: e.target.value})}></input>
-            <input type="text" placeholder="category" value={itemData.category} onChange={(e) => setItemData({ ...itemData, category: e.target.value})}></input>
-            <input type="file" onChange={fileChangedHandler}/>
+            <label for="name-input" className="m-0 small">Nimi</label>
+            <div className="input-group">
+                <input type="text" className="form-control m-0" id="name-input" value={itemData.name} onChange={(e) => setItemData({ ...itemData, name: e.target.value})}></input>
+            </div>
+            <label for="amount-input" className="m-0 small">Määrä varastossa</label>
+            <div className="input-group">
+                <input type="text" className="form-control m-0" id="amount-input" value={itemData.amount} onChange={(e) => setItemData({ ...itemData, amount: e.target.value})}></input>
+            </div>
+            <label for="location-select" className="m-0 small">Hyllypaikka</label>
+            <div className="input-group">
+                {locationSelect()}
+            </div>
+            <label for="category-input" className="m-0 small">Kategoria</label>
+            <div className="input-group">
+                <input type="text" className="form-control m-0" id="category-input" value={itemData.category} onChange={(e) => setItemData({ ...itemData, category: e.target.value})}></input>
+            </div>
+            <label for="file-select" className="m-0 small">Kuva</label>
+            <div className="input-group">
+                <input type="file" className="file" data-browse-on-zone-click="true" id="file-select" onChange={fileChangedHandler}/>
+            </div>
             <img src={itemData.image} ></img>
             <button className="btn btn-primary" type="submit">Tallenna</button>
             <div class="d-flex flex-row">
