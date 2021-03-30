@@ -145,13 +145,7 @@ button{
     margin-left: 150px;
   }
 }
-.admin-map {
-  margin-right: 10rem;
-  max-width: 1000px;
-}
-.user-map {
-  margin-left: 25rem;
-}
+
 /* Tavaran lisäys/muokkaus form */
 #admin-form{
     max-width: 250px;
@@ -213,6 +207,12 @@ button{
 }
 #kartta {
   display: none;
+}
+.admin-map {
+  margin-right: 10rem;
+}
+.user-map {
+  margin-left: 30rem;
 }
 
 
