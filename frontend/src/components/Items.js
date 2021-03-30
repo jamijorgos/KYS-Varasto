@@ -27,6 +27,7 @@ function Items(props) {
             );
             return (
                 <select class= "custom-select custom-select-lg mb-3" onChange = {e => props.setSelectedItem(e.target.value)}>
+                    <option value = {""}>Valitse tavara</option>
                     {listItems}
                 </select>
             );
@@ -37,11 +38,8 @@ function Items(props) {
     //console.log("selectedItem: " + selectedItem);
 
     return (
-        <div>
+        <div class= "sidebarContent">
             <Category/>
-            <br/>
-            <h4>Valitse tavara</h4>
-            
             {ItemList(fetchedData)}
             <br/>
             <Result tavaraId = {props.selectedItem} setMapLocation={props.setMapLocation}/>
@@ -56,13 +54,12 @@ function Category() {
     return (
         <div>
             <br/>
-            <h4>Valitse kategoria</h4>
             <select class= "custom-select custom-select-lg mb-3">
+                <option value="Valitse kategoria">Valitse kategoria</option>
                 <option value="1">Rokotteet</option>
                 <option value="2">Työvälineet</option>
                 <option value="3">Muut</option>
             </select>
-            <br/>
 
         </div>
     );
