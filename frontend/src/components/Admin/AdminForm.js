@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Resizer from 'react-image-file-resizer';
 import * as LogFunctions from './LogFunctions';
 
-const AdminForm = () => {
+const AdminForm = ({setMapLocation}) => {
     const [fetchedData, setfetchedData] = useState([]); //Säilöö kaikki tavarat
     const [currentID, setCurrentID] = useState(0); 
     const [itemData, setItemData] = useState({
@@ -16,6 +16,9 @@ const AdminForm = () => {
         if(currentID != 0)
             setItemData(fetchedData.find((item) => (currentID === item._id)));
     }, [currentID])
+    useEffect(() => {
+        setMapLocation(itemData.location)
+    }, [itemData.location])
 
     // Kaikki tavarat serveriltä
     const fetchData = async () => {
@@ -55,6 +58,7 @@ const AdminForm = () => {
                 }
             })
         } else {
+            let oldData = LogFunctions.getOldData(currentID);
             fetch(`http://localhost:5000/${currentID}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
@@ -62,7 +66,7 @@ const AdminForm = () => {
             }).then(r => r.json()).then(res => {
                 if(res && !res.message){
                     alert('Tavaran muokkaus onnistui!')
-                    LogFunctions.itemEdited(itemData);
+                    LogFunctions.itemEdited(oldData, itemData);
                 } else {
                     alert('Tavaran muokkaus EPÄonnistui!')
                 }

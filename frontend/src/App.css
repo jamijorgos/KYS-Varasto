@@ -75,6 +75,18 @@
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
 }
+@media only screen and (max-width: 1350px) { /* väliaikainen helpottamaan työskentelyä */
+  .admin-flex { 
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #admin-form {
+    margin: auto;
+  }
+  #admin-canvas {
+    margin-left: 150px;
+  }
+}
 .admin-map {
   margin-right: 10rem;
   max-width: 1000px;
@@ -88,7 +100,6 @@
     width: auto;
     display: flex;
     flex-direction: column;
-    min-height: 50rem;
     margin-top: 1.25rem;
     padding-top: 1.9rem;
     padding-left: 1rem;
@@ -102,17 +113,27 @@
   width: 50%;
 }
 /* Loki */
+.log-btn {
+  width: 60%;
+  justify-self: center;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
 .log-main {
-  margin-top: -50px;
   margin-bottom: 50px;
 }
 .log-container {
-  padding: 5px;
+  max-height: 500px;
+  overflow: scroll;
+  padding: 0px;
 }
 .log {
-  padding: 10px 0px 0px 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3px 0px 0px 5px;
   margin-bottom: 5px;
-  width: 200%;
+  width: 100%;
   border-radius: 15px;
 }
 .added-log {
@@ -126,6 +147,14 @@
 .edited-log {
   border: 0.1rem solid rgb(221, 162, 1);
   background-color: rgb(248, 255, 181);
+}
+/* Kartta */ 
+#canvas {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+#kartta {
+  display: none;
 }
 
 @keyframes slide-open{

@@ -10,8 +10,8 @@ const Log = () => {
     async function fetchLogData() {
         let response = await fetch(`http://localhost:5000/logs/list`);
         let data = await response.json();
-        setLogData(data);
-        console.log(data);
+        let reverseData = data.reverse();
+        setLogData(reverseData);
     }
 
     const setLogColor = (e) => {

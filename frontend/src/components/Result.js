@@ -11,6 +11,10 @@ function Result(props) {
         fetchItemData();
     },[props])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
 
+    useEffect(() => {
+        props.setMapLocation(fetchedItemData.location)
+    }, [fetchedItemData])
+
     useEffect(() => { // Suorittaa liian usein (myös sidebaria avattaessa/sulkiessa)
         console.log(fetchedItemData);
         fetch(`http://localhost:5000/${tavaraId}`, {

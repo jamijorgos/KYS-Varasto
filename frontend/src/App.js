@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef } from 'react';
+import React, { useState, Fragment, useRef, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import './App.css';
 import Items from './components/Items.js';
@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);//Sidebarin aukiolotieto
   const [selectedItem, setSelectedItem] = useState("");//Valittu tavara
+  const [mapLocation, setMapLocation] = useState('');
 
   const openHandler = () =>{//käsitellään pyyntö avata sidebar
     if(!sidebarOpen){
@@ -25,7 +26,7 @@ function App() {
 
   let sidebar;//Sidebarin parametrien määrittely
   if(sidebarOpen){//Jos sidebar on auki, sidebarille annetaan parametrina sulkemisfunktio ja avoimen sidebarin luokka.
-    sidebar = <Sidebar close = {sidebarCloseHandler} sidebar = {"sidebar"} selectedItem = {selectedItem} setSelectedItem={setSelectedItem}/>
+    sidebar = <Sidebar close = {sidebarCloseHandler} sidebar = {"sidebar"} selectedItem = {selectedItem} setSelectedItem={setSelectedItem} setMapLocation={setMapLocation}/>
   }
   
   return (
@@ -41,7 +42,7 @@ function App() {
             <Route path="/">
               {sidebar}
               <Toggle click = {openHandler}/>
-              <Map mapClass="user-map"/>
+              <Map mapClass="user-map" mapLocation={mapLocation} />
             </Route>
           </Switch>
         </div>

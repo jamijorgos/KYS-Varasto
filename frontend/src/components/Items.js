@@ -44,7 +44,7 @@ function Items(props) {
             
             {ItemList(fetchedData)}
             <br/>
-            <Result tavaraId = {props.selectedItem}/>
+            <Result tavaraId = {props.selectedItem} setMapLocation={props.setMapLocation}/>
         </div>
 
     )
