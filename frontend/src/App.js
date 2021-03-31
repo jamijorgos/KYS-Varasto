@@ -33,10 +33,14 @@ function App() {
     <Router>
       <body>
         <div className="App-container">
-          <header className="App-header">
-            <h1>KYS-Varastonhallinta</h1>
-            <Link className="btn btn-light" to="adminpanel">Admin</Link>
-          </header>
+          <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand"><h2>KYS-Varastonhallinta</h2></a>
+              <div class="d-flex">
+                <Link className="btn btn-light" to="adminpanel">Admin</Link>
+              </div>
+            </div>
+            </nav>
           <Switch>
             <Route path="/adminpanel" component={AdminPanel}/>
             <Route path="/">
