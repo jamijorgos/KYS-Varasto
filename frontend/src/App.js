@@ -41,8 +41,15 @@ function App() {
             <Route path="/adminpanel" component={AdminPanel}/>
             <Route path="/">
               {sidebar}
-              <Toggle click = {openHandler}/>
+              <br/>
+              <div className="row">
+                <div className ="column">
+                <Toggle click = {openHandler}/>
+                </div>
+                <div className ="column">
               <Map mapClass="user-map" mapLocation={mapLocation} />
+                </div>
+              </div>
             </Route>
           </Switch>
         </div>
