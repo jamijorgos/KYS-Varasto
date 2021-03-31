@@ -204,7 +204,7 @@ export const LOCATIONS = [ // Hyllyjen piirtokohdat pikseleinä
         x: 660,
         y: 420
     }, {
-        nro: 'H1', 
+        nro: 'G3', 
         w: 45,
         h: 200,
         x: 800,

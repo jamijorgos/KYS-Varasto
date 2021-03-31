@@ -24,6 +24,7 @@ app.use('/', Routes);
 app.use('/logs', LogRoutes);
 
 //Connect to Database
+//DB_CONNECTION stringin tilalle asiakkaan oma mongoDB tietokanta (Suojattuna .env tiedostossa tai jossain)
 const DB_CONNECTION = 'mongodb+srv://kys_admin:admin123@cluster0.jnj5r.mongodb.net/KYS_DB?retryWrites=true&w=majority';
 mongoose.connect(DB_CONNECTION);
 

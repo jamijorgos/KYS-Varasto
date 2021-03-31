@@ -14,8 +14,8 @@ const Map = (props) => {
 
     const drawMap = () => {
         const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
         const karttaImg = document.getElementById('kartta');
+        const ctx = canvas.getContext('2d');
         const image = {
             w: karttaImg.width,
             h: karttaImg.height,
@@ -42,7 +42,6 @@ const Map = (props) => {
     const drawLocation = (n) => {
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
-        clear();
         drawMap();
         drawLayout();
         ctx.lineWidth = 4;
@@ -66,13 +65,10 @@ const Map = (props) => {
         ctx.strokeStyle = 'red';
         ctx.strokeRect(hylly.x, hylly.y, hylly.w, hylly.h);
 
-        function clear(){
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
     }
 
     return (
-        <div id="admin-canvas">
+        <div id="map-container">
             <canvas className={props.mapClass} id="canvas" width="891" height="504" ></canvas>
             <img className="img-fluid" src={kartta} id="kartta"></img>
         </div>
