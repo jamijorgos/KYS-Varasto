@@ -58,7 +58,7 @@ button{
 }
 
 .resultText{
-  font-size: large;
+  font-size: larger;
 }
 
 #resultBox{
@@ -112,6 +112,9 @@ button{
     font-size: x-large;
     padding: 0;
     margin-bottom: 1pt;
+  }
+  .resultText{
+    font-size: large;
   }
 }
 
