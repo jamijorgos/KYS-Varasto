@@ -1,9 +1,11 @@
 import React, { useEffect, useState, memo } from 'react';
 import Result from './Result.js';
+import Category from './Category.js';
 
 function Items(props) {
 
     const [fetchedData, setfetchedData] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState([]);
     //const [selectedItem, setselectedItem] = useState(props.props.selectedItem);
 
     useEffect(()=> {//Hooksin lifecycle metodi joka ajetaan sen jälkeen kun DOM-puu on luotu
@@ -34,12 +36,11 @@ function Items(props) {
         }
     }
     //Täällä palautetaan se täydennetty alasvetolaatikko
-    //Sitten joku onchange metodi ja siitä kutsutaan Result
     //console.log("selectedItem: " + selectedItem);
 
     return (
         <div class= "sidebarContent">
-            <Category/>
+            <Category kategoria = {selectedCategory} valitseKategoria = {setSelectedCategory}/>
             {ItemList(fetchedData)}
             <br/>
             <Result tavaraId = {props.selectedItem} setMapLocation={props.setMapLocation}/>
@@ -48,19 +49,3 @@ function Items(props) {
     )
 }
 export default Items;
-
-function Category() {
-    
-    return (
-        <div>
-            <br/>
-            <select class= "custom-select custom-select-lg mb-3">
-                <option value="Valitse kategoria">Valitse kategoria</option>
-                <option value="1">Rokotteet</option>
-                <option value="2">Työvälineet</option>
-                <option value="3">Muut</option>
-            </select>
-
-        </div>
-    );
-}
