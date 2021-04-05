@@ -8,15 +8,30 @@ function Items(props) {
     const [selectedCategory, setSelectedCategory] = useState([]);
     //const [selectedItem, setselectedItem] = useState(props.props.selectedItem);
 
+    
+    console.log("Selected cat.");
+    console.log(selectedCategory);
+
     useEffect(()=> {//Hooksin lifecycle metodi joka ajetaan sen jälkeen kun DOM-puu on luotu
         fetchData();
     },[])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
 
     async function fetchData() {
-        let response = await fetch("http://localhost:5000/");//kutsu jolla saadaan tiedot palvelimelta
-        let data = await response.json();
-        //console.log(data);
-        setfetchedData(data);
+        //let response;
+        if(selectedCategory.length==0 || selectedCategory=="Valitse kategoria"){//Jos ei ole valittu mitään, haetaan kaikki
+            let response = await fetch("http://localhost:5000/");//kutsu jolla saadaan tiedot palvelimelta
+            let data = await response.json();
+            //console.log("dataa:");
+            //console.log(data);
+            setfetchedData(data);
+        }
+        else{
+            let response = await fetch(`http://localhost:5000/category/${selectedCategory}`);//Muuten tehdään haku kategorian perusteella
+            let data = await response.json();
+            console.log("dataa:");
+            console.log(data);
+            setfetchedData(data);
+        }
     }
 
     function ItemList(data) {//Täyttää alasvetolaatikon

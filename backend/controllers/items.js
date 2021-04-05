@@ -61,3 +61,10 @@ export const getAllCategories = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 }
+// Get item by category
+export const getItemsByCategory = async (req, res) => {
+    const { category: _category } = req.params;
+
+    const itemsByCategory = await ItemModel.find({ category:  _category  });
+    res.json(itemsByCategory);
+}

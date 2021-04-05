@@ -10,7 +10,7 @@ function Category(props) {
     },[])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
 
     async function fetchData() {
-        let response = await fetch("http://localhost:5000/categories");//kutsu jolla saadaan kategoriat palvelimelta
+        let response = await fetch("http://localhost:5000/category");//kutsu jolla saadaan kategoriat palvelimelta
         let data = await response.json();
         //console.log("kategoriat:")
         //console.log(data);

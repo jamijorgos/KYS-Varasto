@@ -7,7 +7,8 @@ const router = express.Router();
 
 //Call functions when routes are hit 
 router.get('/', itemFunctions.getAllItems);
-router.get('/categories', itemFunctions.getAllCategories);
+router.get('/category', itemFunctions.getAllCategories);
+router.get('/category/:category', itemFunctions.getItemsByCategory);
 router.post('/', itemFunctions.addNewItem);
 router.get('/:id', itemFunctions.getItemByID);
 router.patch('/:id', itemFunctions.updateItemByID);
