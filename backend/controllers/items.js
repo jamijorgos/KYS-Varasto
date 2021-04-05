@@ -52,3 +52,12 @@ export const deleteItem = async (req, res) => {
     await ItemModel.findByIdAndDelete(_id);
     res.send({ message: `Item ID: ${_id} deleted` });
 }
+//Get all Categories
+export const getAllCategories = async (req, res) => {
+    try {
+        const allCategories = await ItemModel.find().distinct("category");
+        res.status(200).json(allCategories);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
