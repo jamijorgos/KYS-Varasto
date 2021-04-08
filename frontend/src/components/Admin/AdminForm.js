@@ -7,7 +7,7 @@ const AdminForm = ({setMapLocation}) => {
     const [fetchedData, setfetchedData] = useState([]); //Säilöö kaikki tavarat
     const [currentID, setCurrentID] = useState(0); 
     const [itemData, setItemData] = useState({
-        name: '', amount: '', location: '', category: '', image: ''
+        name: '', amount: '', location: '', category: '', image: '', number: ''
     })
 
     useEffect(()=> {
@@ -60,7 +60,6 @@ const AdminForm = ({setMapLocation}) => {
     // Uuden tavaran lisäys, tavaroiden muokkaus
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(itemData);
         if(currentID === 0){
             fetch('http://localhost:5000/', {
                 method: 'POST',
@@ -75,19 +74,26 @@ const AdminForm = ({setMapLocation}) => {
                 }
             })
         } else {
-            let oldData = LogFunctions.getOldData(currentID);
+            let oldData;
             fetch(`http://localhost:5000/${currentID}`, {
+                method: 'GET',
+                headers: {'Content-Type': 'application/json'}
+            }).then(r => r.json()).then(res => {
+                oldData = res;
+            }).then(
+                fetch(`http://localhost:5000/${currentID}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(itemData)
-            }).then(r => r.json()).then(res => {
-                if(res && !res.message){
-                    alert('Tavaran muokkaus onnistui!')
-                    LogFunctions.itemEdited(oldData, itemData);
-                } else {
-                    alert('Tavaran muokkaus EPÄonnistui!')
-                }
-            })
+                }).then(r => r.json()).then(res => {
+                    if(res && !res.message){
+                        alert('Tavaran muokkaus onnistui!')
+                        LogFunctions.itemEdited(oldData, itemData);
+                    } else {
+                        alert('Tavaran muokkaus EPÄonnistui!')
+                    }
+                })
+            )
         }
     }
     // Tuotteen poisto
@@ -137,17 +143,21 @@ const AdminForm = ({setMapLocation}) => {
     const clear = (e) => {
         setCurrentID(0);
         setItemData({
-            name: '', amount: '', location: '', category: '', image: ''
+            name: '', amount: '', location: '', category: '', image: '', number: ''
         })
     }
 
     return (
-        <form id="admin-form" autoComplete="off" noValidate onSubmit={handleSubmit}>
+        <form id="admin-form" autocomplete="off" noValidate onSubmit={handleSubmit}>
             {ItemList(fetchedData)}
             <h3>{currentID === 0 ? 'Lisää tavara' : 'Muokkaa tietoja'}</h3>
             <label for="name-input" className="m-0 small">Nimi</label>
             <div className="input-group">
                 <input type="text" className="form-control m-0" id="name-input" value={itemData.name} onChange={(e) => setItemData({ ...itemData, name: e.target.value})}></input>
+            </div>
+            <label for="nro-input" className="m-0 small">Tuotenumero</label>
+            <div className="input-group">
+                <input type="text" className="form-control m-0" id="nro-input" value={itemData.number} onChange={(e) => setItemData({ ...itemData, number: e.target.value})}></input>
             </div>
             <label for="amount-input" className="m-0 small">Määrä varastossa</label>
             <div className="input-group">

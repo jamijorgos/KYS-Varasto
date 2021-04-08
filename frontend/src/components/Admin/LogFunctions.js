@@ -1,30 +1,43 @@
+//AdminFormin handleSubmit()
 export const itemAdded = (props) => {
     const action = "item added";
-    const message = `nimi: ${props.name} määrä: ${props.amount} paikka: ${props.location} kategoria: ${props.category}`
+    const message = `nimi: ${props.name} || määrä: ${props.amount} || paikka: ${props.location} ||  kategoria: ${props.category}`
     saveLog(action, message); 
 }
-
+//AdminFormin deleteClick()
 export const itemDeleted = (props) => {
     const action = "item deleted";
-    const message = `nimi: ${props.name} määrä: ${props.amount} paikka: ${props.location} kategoria: ${props.category}`
+    const message = `nimi: ${props.name} || määrä: ${props.amount} || paikka: ${props.location} ||  kategoria: ${props.category}`
     saveLog(action, message);
 }
-
+//AdminFormin handleSubmit() ja mahdollisesti saldon muutokset
 export const itemEdited = (oldData, newData) => {
-    console.log(oldData);
     const action = "item edited";
-    let message;
-    if(oldData.name != newData.name){
-        message = `name changed: ${oldData.name} > ${newData.name}`
-    }
-    //const message = `nimi: ${props.name} määrä: ${props.amount} paikka: ${props.location} kategoria: ${props.category}`
-    saveLog(action, message);
-}
 
-export async function getOldData(id){
-    let response = await fetch(`http://localhost:5000/${id}`);
-    let oldData = await response.json();
-    return oldData;
+    let message = '';
+    if(oldData.name != newData.name){
+        message += `|| name changed: ${oldData.name} > ${newData.name}`
+    }
+    if(oldData.amount != newData.amount){
+        message += ` || amount changed: ${oldData.amount} > ${newData.amount}`
+    }
+    if(oldData.location != newData.location){
+        message += ` || location changed: ${oldData.location} > ${newData.location}`
+    }
+    if(oldData.category != newData.category){
+        message += ` || category changed: ${oldData.category} > ${newData.category}`
+    }
+    if(oldData.number != newData.number){
+        if(newData.number.length == 0){
+            message += ` || product number removed`
+        } else {
+            message += ` || product number changed: ${oldData.number} > ${newData.number}`
+        }
+    }
+    if(oldData.image != newData.image){
+        message += ` || image changed ||`
+    }
+    saveLog(action, message);
 }
 
 const saveLog = (action, props) => {
@@ -43,7 +56,3 @@ const saveLog = (action, props) => {
             }
         })
 }
-/*export const amountChanged = (props) => {
-    const action = "amount changed";
-    saveLog(action, props);
-}*/

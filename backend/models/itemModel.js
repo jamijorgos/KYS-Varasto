@@ -21,6 +21,9 @@ const itemSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    number: {
+        type: String
+    }
 });
 
 const ItemModel = mongoose.model('ItemModel', itemSchema);

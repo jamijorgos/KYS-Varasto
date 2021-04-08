@@ -29,7 +29,7 @@ function Result(props) {
                     //alert('Tavaran muokkaus EPÄonnistui!')
                 }
         })
-    }, [fetchedItemData]);
+    }, [fetchedItemData.amount]);
 
     async function fetchItemData() {
         let response = await fetch(`http://localhost:5000/${tavaraId}`);//Tänne oikeanlainen kutsu jolla saadaan tiedot palvelimelta
@@ -61,6 +61,7 @@ function Result(props) {
                         <img src = {fetchedItemData.image} class="img-fluid" alt="tavaran kuva" style = {{paddingTop:15}}></img>
                     </div>
                     <div class = "col-sm-6" id="resultBox">
+                        <p class = "resultText">Tuotenro: {fetchedItemData.number}</p>
                         <p class = "resultText">Nimi: {fetchedItemData.name}</p>
                         <p class = "resultText">Kategoria: {fetchedItemData.category}</p>
                         <p class = "resultText">Hyllypaikka: {fetchedItemData.location}</p>
