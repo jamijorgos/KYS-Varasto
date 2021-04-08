@@ -33,10 +33,10 @@ const AdminForm = ({setMapLocation}) => {
 
         if (data.length > 0){
             const listItems = data.map((tavara) =>
-                <option value = {tavara._id}>{tavara.name}</option>
+                <option key={tavara._id} value = {tavara._id}>{tavara.name}</option>
             );
             return (
-                <select class= "custom-select custom-select-lg mb-2" onChange = {e => setCurrentID(e.target.value)}>
+                <select className= "custom-select custom-select-lg mb-2" onChange = {e => setCurrentID(e.target.value)}>
                     {listItems}
                 </select>
             );
@@ -45,7 +45,7 @@ const AdminForm = ({setMapLocation}) => {
     // Hyllynumeroiden selectin luonti
     const locationSelect = () => {
         const hyllynumerot = LOCATIONS.map((location) =>
-            <option value={location.nro}>{location.nro}</option>
+            <option key={location.nro} value={location.nro}>{location.nro}</option>
         )
         return (
             <select id="location-select" className="custom-select m-0" onChange={(e) => setItemData({ ...itemData, location: e.target.value})}>
@@ -148,36 +148,36 @@ const AdminForm = ({setMapLocation}) => {
     }
 
     return (
-        <form id="admin-form" autocomplete="off" noValidate onSubmit={handleSubmit}>
+        <form id="admin-form" autoComplete="off" noValidate onSubmit={handleSubmit}>
             {ItemList(fetchedData)}
             <h3>{currentID === 0 ? 'Lisää tavara' : 'Muokkaa tietoja'}</h3>
-            <label for="name-input" className="m-0 small">Nimi</label>
+            <label htmlFor="name-input" className="m-0 small">Nimi</label>
             <div className="input-group">
                 <input type="text" className="form-control m-0" id="name-input" value={itemData.name} onChange={(e) => setItemData({ ...itemData, name: e.target.value})}></input>
             </div>
-            <label for="nro-input" className="m-0 small">Tuotenumero</label>
+            <label htmlFor="nro-input" className="m-0 small">Tuotenumero</label>
             <div className="input-group">
                 <input type="text" className="form-control m-0" id="nro-input" value={itemData.number} onChange={(e) => setItemData({ ...itemData, number: e.target.value})}></input>
             </div>
-            <label for="amount-input" className="m-0 small">Määrä varastossa</label>
+            <label htmlFor="amount-input" className="m-0 small">Määrä varastossa</label>
             <div className="input-group">
                 <input type="text" className="form-control m-0" id="amount-input" value={itemData.amount} onChange={(e) => setItemData({ ...itemData, amount: e.target.value})}></input>
             </div>
-            <label for="location-select" className="m-0 small">Hyllypaikka</label>
+            <label htmlFor="location-select" className="m-0 small">Hyllypaikka</label>
             <div className="input-group">
                 {locationSelect()}
             </div>
-            <label for="category-input" className="m-0 small">Kategoria</label>
+            <label htmlFor="category-input" className="m-0 small">Kategoria</label>
             <div className="input-group">
                 <input type="text" className="form-control m-0" id="category-input" value={itemData.category} onChange={(e) => setItemData({ ...itemData, category: e.target.value})}></input>
             </div>
-            <label for="file-select" className="m-0 small">Kuva</label>
+            <label htmlFor="file-select" className="m-0 small">Kuva</label>
             <div className="input-group">
                 <input type="file" className="file" data-browse-on-zone-click="true" id="file-select" onChange={fileChangedHandler}/>
             </div>
             <img src={itemData.image} ></img>
             <button className="btn btn-primary" type="submit">Tallenna</button>
-            <div class="d-flex flex-row">
+            <div className="d-flex flex-row">
                 <button className="button2 btn btn-danger" type="button" onClick={deleteClick}>Poista</button>
                 <button className="button2 btn btn-secondary" type="button" onClick={clear}>Tyhjennä</button>
             </div>

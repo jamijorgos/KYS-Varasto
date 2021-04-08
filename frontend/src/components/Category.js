@@ -20,10 +20,10 @@ function Category(props) {
     function CategoriesList(data) {//Täyttää alasvetolaatikon
         if (data.length > 0){
             const listItems = data.map((kategoria) =>
-                <option value = {kategoria}>{kategoria}</option>
+                <option key={kategoria} value = {kategoria}>{kategoria}</option>
             );
             return (
-                <select class= "custom-select custom-select-lg mb-3" onChange = {e => props.valitseKategoria(e.target.value)}>
+                <select className= "custom-select custom-select-lg mb-3" onChange = {e => props.valitseKategoria(e.target.value)}>
                 <option value="Valitse kategoria">Valitse kategoria</option>
                 {listItems}
                 </select>

@@ -31,12 +31,11 @@ function App() {
   
   return (
     <Router>
-      <body>
         <div className="App-container">
-          <nav class="navbar navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand"><h2>KYS-Varastonhallinta</h2></a>
-              <div class="d-flex">
+          <nav className="navbar navbar-dark bg-dark">
+            <div className="container-fluid">
+              <a className="navbar-brand"><h2>KYS-Varastonhallinta</h2></a>
+              <div className="d-flex">
                 <Link className="btn btn-light" to="adminpanel">Admin</Link>
               </div>
             </div>
@@ -57,7 +56,6 @@ function App() {
             </Route>
           </Switch>
         </div>
-      </body>
     </Router>
   );
 }
@@ -67,7 +65,7 @@ export default App;
 function Toggle(props){
   return(
       <Fragment>
-          <button class="btn btn-info btn-lg" id="toggle" onClick = {props.click}>&#8801;</button>
+          <button className="btn btn-info btn-lg" id="toggle" onClick = {props.click}>&#8801;</button>
       </Fragment>
   )
 }

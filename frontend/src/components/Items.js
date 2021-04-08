@@ -40,10 +40,10 @@ function Items(props) {
         
         if (data.length > 0){
             const listItems = data.map((tavara) =>
-                <option value = {tavara._id}>{tavara.name}</option>
+                <option key={tavara._id} value = {tavara._id}>{tavara.name}</option>
             );
             return (
-                <select class= "custom-select custom-select-lg mb-3" onChange = {e => props.setSelectedItem(e.target.value)}>
+                <select className= "custom-select custom-select-lg mb-3" onChange = {e => props.setSelectedItem(e.target.value)}>
                     <option value = {""}>Valitse tavara</option>
                     {listItems}
                 </select>
@@ -54,7 +54,7 @@ function Items(props) {
     //console.log("selectedItem: " + selectedItem);
 
     return (
-        <div class= "sidebarContent">
+        <div className= "sidebarContent">
             <Category kategoria = {selectedCategory} valitseKategoria = {setSelectedCategory}/>
             {ItemList(fetchedData)}
             <br/>
