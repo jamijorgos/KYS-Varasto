@@ -49,9 +49,7 @@ function App() {
                 <div className ="column">
                 <Toggle click = {openHandler}/>
                 </div>
-                <div className ="column">
               <Map mapClass="user-map" mapLocation={mapLocation} />
-                </div>
               </div>
             </Route>
           </Switch>

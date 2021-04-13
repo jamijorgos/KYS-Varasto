@@ -52,6 +52,8 @@ button{
   padding-left: 20pt;
   padding-right: 20pt;
   font-size: x-large;
+  z-index: 150;
+  position: absolute;
 }
 
 #saldo{
@@ -100,35 +102,6 @@ button{
   z-index: 200;
   left: 0;
   animation: slide-closed 0.75s forwards;
-}
-
-/*Media Queryt*/
-
-@media (min-width: 576px) {
-
-  .sidebar{
-    background-color: rgb(145, 136, 11);
-    max-width: 500px;
-    
-  }
-  #saldo{
-    width: 40%;
-    font-size: x-large;
-    padding: 0;
-    margin-bottom: 1pt;
-  }
-}
-
-@media (min-width: 768px) {
-  .sidebar{
-    background-color: rgb(11, 145, 22);
-  }
-}
-
-@media (min-width: 992px) {
-  .sidebar{
-    background-color: rgb(13, 11, 145);
-  }
 }
 
 
@@ -198,6 +171,8 @@ button{
 /* Kartta */ 
 #map-container {
   grid-column: 2 / span 3;
+  margin-left: auto;
+  margin-right: auto;
 }
 #canvas {
   background: #f0f0f0;
@@ -205,15 +180,46 @@ button{
 }
 #kartta {
   display: none;
+  margin-left: 400px;
 }
 .admin-map {
   margin-right: 20rem;
   width: 100%;
 }
 .user-map {
-  margin-left: 400px;
-  width: 60%;
+  width: 100%;
 }
+
+/*Media Queryt*/
+
+@media (min-width: 576px) {
+
+  .sidebar{
+    background-color: rgb(145, 136, 11);
+    max-width: 500px;
+    
+  }
+  #saldo{
+    width: 40%;
+    font-size: x-large;
+    padding: 0;
+    margin-bottom: 1pt;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar{
+    background-color: rgb(11, 145, 22);
+  }
+  
+}
+
+@media (min-width: 992px) {
+  .sidebar{
+    background-color: rgb(13, 11, 145);
+  }
+}
+
 
 
 @keyframes slide-open{
