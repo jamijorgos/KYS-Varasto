@@ -42,6 +42,10 @@ button{
   padding: 2pt;
 }
 
+#appRow{
+  margin-right: 0;
+}
+
 #toggle{
   padding: 10pt;
   margin-left: 20px;

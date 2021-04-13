@@ -45,7 +45,7 @@ function App() {
             <Route path="/">
               {sidebar}
               <br/>
-              <div className="row">
+              <div className="row" id="appRow">
                 <div className ="column">
                 <Toggle click = {openHandler}/>
                 </div>

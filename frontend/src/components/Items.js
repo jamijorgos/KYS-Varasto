@@ -14,7 +14,7 @@ function Items(props) {
 
     useEffect(()=> {//Hooksin lifecycle metodi joka ajetaan sen jälkeen kun DOM-puu on luotu
         fetchData();
-    },[])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
+    },[selectedCategory])//Estetään jatkuva haku, ainoastaan tilanmuutoksen yhteydessä
 
     async function fetchData() {
         //let response;
