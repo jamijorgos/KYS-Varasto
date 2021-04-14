@@ -46,6 +46,11 @@ button{
   margin-right: 0;
 }
 
+#navContainer{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 #toggle{
   padding: 10pt;
   margin-left: 20px;
