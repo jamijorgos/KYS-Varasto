@@ -9,8 +9,8 @@ function Items(props) {
     //const [selectedItem, setselectedItem] = useState(props.props.selectedItem);
 
     
-    console.log("Selected cat.");
-    console.log(selectedCategory);
+    //console.log("Selected cat.");
+    //console.log(selectedCategory);
 
     useEffect(()=> {//Hooksin lifecycle metodi joka ajetaan sen jälkeen kun DOM-puu on luotu
         fetchData();
@@ -28,15 +28,15 @@ function Items(props) {
         else{
             let response = await fetch(`http://localhost:5000/category/${selectedCategory}`);//Muuten tehdään haku kategorian perusteella
             let data = await response.json();
-            console.log("dataa:");
-            console.log(data);
+            //console.log("dataa:");
+            //console.log(data);
             setfetchedData(data);
         }
     }
-
+    //Testifunktion suunnitelma: Tee funktio joka antaa data taulukon jossa on keksittyjä tavaroita ja vertaa funktion palauttamaa koodia oikeaan koodiin.
     function ItemList(data) {//Täyttää alasvetolaatikon
-        //console.log("Data: ");
-        //console.log(data);
+        console.log("Data: ");
+        console.log(data);
         
         if (data.length > 0){
             const listItems = data.map((tavara) =>
