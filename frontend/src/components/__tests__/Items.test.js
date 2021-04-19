@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {ReactDOM, unmountComponentAtNode} from 'react-dom';
 import Items from '../Items.js';
 
 import {render, cleanup} from '@testing-library/react';
-import renderer from 'react-test-renderer';
 
-const renderer = require('react-test-renderer');
 
 
 let container = null;
@@ -21,11 +19,6 @@ afterEach(() => {
   container.remove();
   container = null;
 });
-
-it("renderöi kaatumatta", ()=>{
-    const div = document.createElement("div");
-    ReactDOM.render(<Items></Items>, div);
-})
 
 it("renders fake data", async () => {
     const fakeData = {    id: "213324", name: "Item1",    amount: "32",    location: "A123", category: "category1", image : "Kuva", number: "12345"  };  jest.spyOn(global, "fetch").mockImplementation(() =>    Promise.resolve({      json: () => Promise.resolve(fakeData)    })  );
