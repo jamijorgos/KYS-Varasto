@@ -23,7 +23,7 @@ const AdminPanel = () => {
             <div className="admin-flex">
                 <AdminForm setMapLocation={setMapLocation}/>
                 <Map mapClass="admin-map" mapLocation={mapLocation}/>
-                <button onClick={openLog} className="log-btn">
+                <button onClick={openLog} className="btn btn-primary" id = "log-btn">
                     Loki
                 </button>
                 {logVisible == true ? <Log /> : null}

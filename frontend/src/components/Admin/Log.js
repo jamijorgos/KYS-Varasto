@@ -31,7 +31,7 @@ const Log = () => {
 
     return (
         <div className="log-main">
-            <h1>Tapahtumat</h1>
+            <h3>Tapahtumat</h3>
             <div className="log-container">
                 {logData.map((log) => (
                     <div className={setLogColor(log.action)}>

@@ -50,7 +50,7 @@ function Result(props) {
 
     return (
         <form>
-            <div className="container bg-info">
+            <div className="container bg-info" id="resultContainer">
                 <div className = "row">
                     <div className = "col-sm-6" style = {{maxheight: 100}}>
                         <img src = {fetchedItemData.image} className="img-fluid" alt="tavaran kuva" style = {{paddingTop:15}}></img>

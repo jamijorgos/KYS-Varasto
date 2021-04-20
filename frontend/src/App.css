@@ -85,9 +85,9 @@ button{
 .sidebar {
   height: 100vh;
   padding-left: 20px;
-  opacity: 0.8;
+  /**opacity: 0.8;**/
   color: white;
-  background-color: rgb(145, 11, 11);
+  background-color: rgba(11, 74, 145, 0.753);
   width: 100%;
   max-width: 500px;
   position: absolute;
@@ -99,7 +99,7 @@ button{
 .sidebar-close{
   height: 100vh;
   padding-left: 20px;
-  opacity: 0.8;
+  /**opacity: 0.8;**/
   color: white;
   width: 100%;
   max-width: 500px;
@@ -107,6 +107,14 @@ button{
   z-index: 200;
   left: 0;
   animation: slide-closed 0.75s forwards;
+}
+
+#close{
+  opacity: 1;
+}
+
+#resultContainer{
+  opacity: 1;
 }
 
 
@@ -137,19 +145,22 @@ button{
   width: 50%;
 }
 /* Loki */
-.log-btn {
-  width: 60%;
-  justify-self: center;
+#log-btn {
+  max-width: 220px;
+  justify-self: normal;
   height: 50px;
   margin-top: 20px;
   margin-bottom: 50px;
+  margin-left: 1rem;
 }
 .log-main {
   grid-column: 2 / span 3;
   margin-bottom: 50px;
+  max-width: 100%;
 }
 .log-container {
   max-height: 500px;
+  max-width: 100%;
   overflow: scroll;
   padding: 0px;
 }
@@ -189,7 +200,6 @@ button{
   margin-left: 400px;
 }
 .admin-map {
-  margin-right: 20rem;
   width: 100%;
 }
 .user-map {
@@ -201,7 +211,7 @@ button{
 @media (min-width: 576px) {
 
   .sidebar{
-    background-color: rgb(145, 136, 11);
+    /**background-color: rgb(145, 136, 11);**/
     max-width: 500px;
     
   }
@@ -214,16 +224,12 @@ button{
 }
 
 @media (min-width: 768px) {
-  .sidebar{
-    background-color: rgb(11, 145, 22);
-  }
+  
   
 }
 
 @media (min-width: 992px) {
-  .sidebar{
-    background-color: rgb(13, 11, 145);
-  }
+  
 }
 
 
