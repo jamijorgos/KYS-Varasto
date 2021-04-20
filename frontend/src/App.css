@@ -175,14 +175,17 @@ button{
 .added-log {
   border: 0.1rem solid rgb(0, 97, 0);
   background-color: rgb(185, 250, 185);
+  overflow: hidden;
 }
 .deleted-log {
   border: 0.1rem solid rgb(216, 0, 0);
   background-color: rgb(253, 161, 161);
+  overflow: hidden;
 }
 .edited-log {
   border: 0.1rem solid rgb(221, 162, 1);
   background-color: rgb(248, 255, 181);
+  overflow: hidden;
 }
 /* Kartta */ 
 #map-container {
