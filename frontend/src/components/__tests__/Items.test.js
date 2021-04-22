@@ -1,9 +1,9 @@
 import React from 'react';
-import {ReactDOM, unmountComponentAtNode} from 'react-dom';
+import {render, ReactDOM, unmountComponentAtNode} from 'react-dom';
 import { act } from "react-dom/test-utils";
 import Items from '../Items.js';
 
-import {render, cleanup} from '@testing-library/react';
+import {screen} from '@testing-library/react';
 
 
 
@@ -24,7 +24,7 @@ afterEach(() => {
 const mockCallback = jest.fn();
 
 
-it("renders fake data", async () => {
+test("renders fake data", async () => {
     const fakeData = {    id: "213324", name: "Item1",    amount: "32",    location: "A123", category: "category1", image : "Kuva", number: "12345"  
   };  
   jest.spyOn(global, "fetch").mockImplementation(() =>
@@ -35,14 +35,12 @@ it("renders fake data", async () => {
     // Use the asynchronous version of act to apply resolved promises
     await act(async () => {
       render(<Items selectedItem = {"213324"} setSelectedItem = {mockCallback} setMapLocation={mockCallback} />, container);
+      
     });
-  
-    //expect(container.querySelector("summary").textContent).toBe(fakeUser.name);
-    //expect(container.querySelector("strong").textContent).toBe(fakeUser.age);
-
-    //Kokeillaan sisältääkö renderöitävä komponentti luodun datan tiedot
-    //expect(container.textContent).toContain(fakeData.name);
-    expect(container.textContent).toContain("Valitse tavara");
+    
+    //Testataan ItemList funktiota. Renderöikö se annetun datan?
+    expect(container.querySelector("option").textContent).toContain("category1");
+    expect(container.textContent).toContain("Item1");
   
     // remove the mock to ensure tests are completely isolated  
     global.fetch.mockRestore();});
