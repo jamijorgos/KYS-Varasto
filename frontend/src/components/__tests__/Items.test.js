@@ -39,9 +39,34 @@ test("renders fake data", async () => {
     });
     
     //Testataan ItemList funktiota. Renderöikö se annetun datan?
-    expect(container.querySelector("option").textContent).toContain("category1");
+
+    //expect(container.querySelector("option").textContent).toContain("category1");
     expect(container.textContent).toContain("Item1");
   
     // remove the mock to ensure tests are completely isolated  
-    global.fetch.mockRestore();});
+    global.fetch.mockRestore();
+  });
+
+  test("tyhjän palautus", async () => {
+    const fakeData = {    id: "", name: "",    amount: "",    location: "", category: "", image : "", number: ""  
+  };
+  jest.spyOn(global, "fetch").mockImplementation(() =>
+        Promise.resolve({
+                json: () => Promise.resolve(fakeData)    
+              })  
+            );
+    // Use the asynchronous version of act to apply resolved promises
+    await act(async () => {
+      render(<Items selectedItem = {"213324"} setSelectedItem = {mockCallback} setMapLocation={mockCallback} />, container);
+      
+    });
+    
+    //Testataan ItemList funktiota. Renderöikö se annetun datan?
+
+    //expect(container.querySelector("option").textContent).toContain("category1");
+    expect(container.textContent).toContain("Item1");
+  
+    // remove the mock to ensure tests are completely isolated  
+    global.fetch.mockRestore();
+  });
 

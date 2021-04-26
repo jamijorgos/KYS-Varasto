@@ -219,12 +219,17 @@ button{
     max-width: 500px;
     
   }
+  #navContainer{
+    font-size: small;
+  }
   #saldo{
     width: 40%;
     font-size: x-large;
     padding: 0;
     margin-bottom: 1pt;
   }
+  
+  
 }
 
 @media (min-width: 768px) {

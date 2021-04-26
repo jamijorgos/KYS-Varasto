@@ -16,7 +16,7 @@ function Sidebar (props) {
   
     return(
         <div className={sidebarClass}>
-            <h2>Tavarahaku</h2>
+            <h3>Tavarahaku</h3>
             <button id="close" className="btn btn-info btn-lg" onClick = {closeHandler}>&times; SULJE</button>
             <Items selectedItem = {props.selectedItem} setSelectedItem = {props.setSelectedItem} setMapLocation={props.setMapLocation}/>
         </div>

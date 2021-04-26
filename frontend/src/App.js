@@ -34,7 +34,7 @@ function App() {
         <div className="App-container">
           <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid" id ="navContainer">
-              <a className="navbar-brand"><h2>KYS-Varastonhallinta</h2></a>
+              <a className="navbar-brand"><h3>KYS-Varastonhallinta</h3></a>
               <div className="d-flex">
                 <Link className="btn btn-light" to="adminpanel">Admin</Link>
               </div>
