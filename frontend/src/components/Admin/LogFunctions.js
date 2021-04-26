@@ -1,18 +1,18 @@
 //AdminFormin handleSubmit()
 export const itemAdded = (props) => {
     const action = "item added";
-    const message = `nimi: ${props.name} || määrä: ${props.amount} || paikka: ${props.location} ||  kategoria: ${props.category}`
+    const message = `tuotenumero: ${props.number} || nimi: ${props.name} || määrä: ${props.amount} || paikka: ${props.location} ||  kategoria: ${props.category}`
     saveLog(action, message); 
 }
 //AdminFormin deleteClick()
 export const itemDeleted = (props) => {
     const action = "item deleted";
-    const message = `nimi: ${props.name} || määrä: ${props.amount} || paikka: ${props.location} ||  kategoria: ${props.category}`
+    const message = `tuotenumero: ${props.number} || nimi: ${props.name} || määrä: ${props.amount} || paikka: ${props.location} ||  kategoria: ${props.category}`
     saveLog(action, message);
 }
 //AdminFormin handleSubmit() ja mahdollisesti saldon muutokset
 export const itemEdited = (oldData, newData) => {
-    const action = "item edited";
+    const action = `Item '${oldData.name}' edited`;
 
     let message = '';
     if(oldData.name != newData.name){

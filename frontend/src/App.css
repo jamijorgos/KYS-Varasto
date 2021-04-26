@@ -127,15 +127,14 @@ button{
 
 /* Tavaran lisäys/muokkaus form */
 #admin-form{
-    max-width: 250px;
+    max-width: 350px;
     grid-column: 1 / span 1;
     width: auto;
     display: flex;
     flex-direction: column;
     margin-top: 1.25rem;
     padding-top: 1.9rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 3rem;
 }
 #admin-form input, #admin-form button {
   margin: 5px;
@@ -143,6 +142,9 @@ button{
 #admin-form .button2 {
   margin-top: 0px;
   width: 50%;
+}
+#admin-form img {
+  max-width: 150px;
 }
 /* Loki */
 #log-btn {
@@ -171,28 +173,27 @@ button{
   margin-bottom: 5px;
   width: 100%;
   border-radius: 15px;
+  overflow: hidden;
 }
 .added-log {
   border: 0.1rem solid rgb(0, 97, 0);
   background-color: rgb(185, 250, 185);
-  overflow: hidden;
 }
 .deleted-log {
   border: 0.1rem solid rgb(216, 0, 0);
   background-color: rgb(253, 161, 161);
-  overflow: hidden;
 }
 .edited-log {
   border: 0.1rem solid rgb(221, 162, 1);
   background-color: rgb(248, 255, 181);
-  overflow: hidden;
 }
 /* Kartta */ 
 #map-container {
   grid-column: 2 / span 3;
   margin-left: auto;
-  margin-right: auto;
-  padding-left: 5rem;
+  margin-right: 0em;
+  padding-left: 1rem;
+  margin-top: 3rem;
 }
 #canvas {
   background: #f0f0f0;
@@ -235,6 +236,33 @@ button{
   
 }
 
+@media only screen and (max-width: 800px) {
+  .admin-flex { 
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  #admin-form{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    max-width: 400px;
+    width: 100%;
+    padding-left: 1rem;
+  }
+  #map-container {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  #log-btn {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .log-main {
+    margin-left: 1em;
+    grid-column: 1;
+    grid-row: 4;
+  }
+}
 
 
 @keyframes slide-open{

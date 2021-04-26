@@ -21,11 +21,8 @@ const Log = () => {
         if(e === "item deleted"){
             return "log deleted-log"
         }
-        if(e === "item edited"){
+        if(e.substr(0, 4) === "Item" && e.slice(e.length - 6) === 'edited'){
             return "log edited-log"
-        }
-        if(e === "amount changed"){
-            //saldon muutokset
         }
     }
 
@@ -34,7 +31,7 @@ const Log = () => {
             <h3>Tapahtumat</h3>
             <div className="log-container">
                 {logData.map((log) => (
-                    <div className={setLogColor(log.action)}>
+                    <div key={log._id} className={setLogColor(log.action)}>
                         <p>{log.action}</p>
                         <p>{log.info}</p>
                         <p>{log.createdAt}</p>
