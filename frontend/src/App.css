@@ -148,12 +148,12 @@ button{
 }
 /* Loki */
 #log-btn {
-  max-width: 220px;
+  max-width: 298px;
   justify-self: normal;
   height: 50px;
   margin-top: 20px;
   margin-bottom: 50px;
-  margin-left: 1rem;
+  margin-left: 3.2rem;
 }
 .log-main {
   grid-column: 2 / span 3;
